@@ -1,0 +1,43 @@
+DEFINITIONS
+scene = holds the 3D objects
+camera = view the scene
+<canvas> = html canvas element
+renderer = machine that takes camera + scene as input and output them to html canvas 
+mesh = holder for geometry + material + defines the position in 3D space, can add this to the scene
+geometry = defines shape of mesh
+material = defines how the surface of mesh looks
+
+JS FILE STRUCTURE
+> set up
+> scene
+> camera
+> objects
+>renderer
+>render the scene
+
+
+CAMERA
+> takes four parameters, which together define its "view frustrum"
+frustrum = math term for 4-sided rectangular pyramid with top cut off.
+
+FOV/Field of view = defines the angle of view frustrum, how much of the world can be seen through the camera
+"A human’s FOV is about 120 degrees, so for a realistic FOV in your app, you will need to consider how much of this field of view the screen will be likely to take up. Console games designed to be shown on screens far away from the viewer are usually between 40 - 60 degrees, while a PC game might use a higher FOV of around 90 since the screen is likely to be right in front of the player."
+
+Aspect Ratio = width divided by height of the view rectangle
+
+Clipping Planes =  near + far
+closer than near = not visible, further away than far = not visible
+near must be < 0 && > far
+near big ap, far small ap but bigger than near = most efficient 
+
+Coordinate system
+x y z
++z == out of the screen (towards you)
+-z == into the screen (away from you)
+
+1 three.js unit = 1 meter
+
+‘The window.requestAnimationFrame method tells the browser that you wish to perform an animation and requests that the browser call a specified function to update an animation before the next repaint. The method takes a callback as an argument to be invoked before the repaint.’
+
+    renderer = new THREE.WebGLRenderer({antialias: true})
+= blurs pixels around edges to look smoother
